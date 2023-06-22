@@ -16,8 +16,8 @@ public class ProjectImpl implements ProjectService{
 	
 	
 	@Override
-	public List<Project> getList() throws Exception {
-		return projectmapper.getList();
+	public List<Project> getList(int start,int end) throws Exception {
+		return projectmapper.getList(start,end);
 	}
 
 
@@ -25,6 +25,53 @@ public class ProjectImpl implements ProjectService{
 	public void insertData(Project project) throws Exception {
 		projectmapper.insertData(project);
 	}
+
+
+	@Override
+	public Project getReadData(int num) throws Exception {
+		
+		return projectmapper.getReadData(num);
+	}
+
+
+	@Override
+	public void updateData(Project project) throws Exception {
+		projectmapper.updateData(project);
+		
+	}
+
+
+	@Override
+	public int maxNum() throws Exception {
+		return projectmapper.maxNum();
+	}
+
+
+	@Override
+	public void deleteData(int num) throws Exception {
+		projectmapper.deleteData(num);
+	}
+
+
+	@Override
+	public int getDataCount() throws Exception {
+		
+		return projectmapper.getDataCount();
+	}
+
+
+	@Override
+	public void minusData(int num) throws Exception {
+		projectmapper.minusData(num);
+		
+	}
+	
+	
+
+
+	
+	
+	
 	
 	
 

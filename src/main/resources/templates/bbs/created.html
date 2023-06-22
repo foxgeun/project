@@ -68,18 +68,18 @@
         <div class="main_div">
           <div class="main_menu">
             <ul>
-               <li><a href="index" style="text-decoration: none; color: black">Home</a></li>
-              <li>Lounge</li>
-              <li>RoomType</li>
-               <li><a href="list" style="text-decoration: none; color: black">Reservation</a></li>
+               <li><a href="/" style="text-decoration: none; color: black">Home</a></li>
+              <li><a href="room" style="text-decoration: none; color: black">About</a></li>
+              <li><a href="created" style="text-decoration: none; color: black">Created</a></li>
+              <li><a href="list" style="text-decoration: none; color: black">Reservation List</a></li>
             </ul>
           </div>
           <div class="slider">
             예약하기
            
-	    <div layout:fragment="content" id="bbs">
+	    <div layout:fragment="content" class="bbs">
 		<form action="/created" method="post" name="myForm">
-	<div id="bbsCreated">
+	<div class="bbsCreated">
 		
 		<div class="bbsCreated_bottomLine">
 			<dl>
@@ -102,8 +102,8 @@
 		</div>		
 	</div>
 	
-	<div id="bbsCreated_footer">
-		<input type="button" value=" 등록하기 " class="btn2" 
+	<div class="bbsCreated_footer">
+		<input style="margin-left:40px" type="button" value=" 등록하기 " class="btn2" 
 		onclick="sendIt();"/>
 		<input type="reset" value=" 다시입력 " class="btn2" 
 		onclick="document.myForm.name.focus();" />

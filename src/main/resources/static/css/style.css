@@ -110,3 +110,55 @@ body {
 .right_div {
   margin-left: 40px;
 }
+
+.hidden{
+  display: none;
+}
+
+.btn-danger,
+.btn2 {
+  width: 90px;
+  height: 30px;
+  line-height: 13px;
+  border-radius: 5px;
+  border: none;
+}
+
+.boxTF {
+  width: 300px;
+}
+
+.bbsCreated {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bbsCreated_footer {
+  margin-left: 110px;
+}
+
+table {
+  width: 500px;
+  
+}
+
+table th,
+td {
+  padding: 10px 1px;
+  
+}
+
+table th,
+td a{
+  text-decoration: none;
+  color: black;
+  border: none;
+}
+
+.room_div{
+  
+  display: flex;
+  
+  justify-content: center;
+}
+
