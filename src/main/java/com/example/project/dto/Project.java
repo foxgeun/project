@@ -7,9 +7,10 @@ import lombok.Setter;
 @Setter
 public class Project {
 	
-	private String name;
 	private int num;
-	private String day;
-	
+	private String name;
+	private String room_type;
+	private String che_day;
+	private String out_day;
 	
 }

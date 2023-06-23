@@ -79,7 +79,7 @@
 
             <div layout:fragment="content" class="bbs">
               <form action="/updated_ok" method="post" name="myForm">
-                <div class="bbsCreated">
+                <div id="bbsCreated">
                   <div class="bbsCreated_bottomLine">
                     <dl>
                       <dt>이 름</dt>
@@ -95,15 +95,26 @@
                       </dd>
                     </dl>
                   </div>
+                  <div class="bbsCreated_bottomLine">
+                    <dl>
+                      <dt>room type</dt>
+                      <dd>
+                        <input  checked="checked" type="radio" name="room_type" value="1F">
+                        <label th:text="${project.room_type}" for="room_type"></label><br>
+                         
+                      </dd>
+                      
+                    </dl>
+                  </div>
 
                   <div class="bbsCreated_bottomLine">
                     <dl>
-                      <dt>날짜</dt>
+                      <dt>체크인 날짜</dt>
                       <dd>
                         <input
-                        th:value="${project.day}"
-                          type="text"
-                          name="day"
+                        th:value="${project.che_day}"
+                          type="date"
+                          name="che_day"
                           size="35"
                           maxlength="50"
                           class="boxTF"
@@ -113,14 +124,15 @@
                   </div>
                   <div class="bbsCreated_bottomLine">
                     <dl>
+                      <dt>체크아웃 날짜</dt>
                       <dd>
                         <input
-                        th:value="${project.num}"
-                          type="text"
-                          name="num"
+                        th:value="${project.out_day}"
+                          type="date"
+                          name="out_day"
                           size="35"
                           maxlength="50"
-                          class="boxTF hidden"
+                          class="boxTF"
                         />
                       </dd>
                     </dl>
@@ -201,40 +213,60 @@
 
 
 
-         	function sendIt() {
-         		var f = document.myForm;  //폼태그
-         		var str = f.name.value; //제목의 입력된 값을 가져온다
-         		str = str.trim(); //공백을 앞뒤로 없애준다
+         function sendIt() {
+     		
+     		var f = document.myForm;  //폼태그
+     		var str = f.name.value; //제목의 입력된 값을 가져온다
+     		str = str.trim(); //공백을 앞뒤로 없애준다
+     		
+     		
 
-         		if(!str){
-         			alert("제목을 입력하세요.");
-         			f.name.focus();
-         			return;
-         		}
-
-
-         		str = f.day.value;
-         		str = str.trim();
-
-
-         		if(!str){
-         			alert("이름을 입력하세요.");
-         			f.day.focus();
-         			return;
-         		}
-         		
-         		str = f.num.value;
-         		str = str.trim();
-         		
-         		if(!str){
-         			alert("숫자을 입력하세요.");
-         			f.day.focus();
-         			return;
-         		}
-         		
-         		f.submit();
-
-         	}
+     		str = f.name.value;
+     		str = str.trim();
+     		
+     		
+     		if(!str){
+     			alert("이름을 입력하세요.");
+     			f.name.focus();
+     			return;
+     		}
+     		
+     		str = f.room_type.value;
+     		str = str.trim();
+     		
+     		
+     		if(!str){
+     			alert("방을 선택.");
+     			f.room_type.focus();
+     			return;
+     		}
+     		
+     		str = f.che_day.value;
+     		str = str.trim();
+     		
+     		
+     		if(!str){
+     			alert("날짜를 입력하세요.");
+     			f.che_day.focus();
+     			return;
+     		}
+     		
+     		str = f.out_day.value;
+     		str = str.trim();
+     		
+     		
+     		if(!str){
+     			alert("날짜아를 입력하세요.");
+     			f.out_day.focus();
+     			return;
+     		}
+     		
+     		
+     		
+     		
+     		f.submit();
+     		
+     	}
     </script>
   </th:block>
 </html>

@@ -85,16 +85,19 @@
 			<tr>
 				<th class="num">번호</th>
 				
-				<th class="name">&nbsp이름</th>
-				<th class="name">&nbsp&nbsp예약일</th>
+				<th class="name">이름</th>
+				<th class="name">룸</th>
+				<th class="name">체크인</th>
+					<th class="name">체크아웃</th>
 			</tr>
 		</thead>
 			
 			<tr th:if="${#lists.size(lists)} > 0 " th:each="pro:${lists}">
 				<td class="num" th:text="${pro.num}" >1</td> 
 				<td class="name"><a th:href="|@{${updatedURL}}?num=@{${pro.num}}|" th:text="${pro.name}"></a></td>
-				
-				<td class="name" th:text="${pro.day}">6월 28일</td>
+				<td class="name" th:text="${pro.room_type}">6월 28일</td>
+				<td class="name" th:text="${pro.che_day}">6월 28일</td>
+				<td class="name" th:text="${pro.out_day}">6월 28일</td>
 			</tr>
 			
 				<tr th:if="${#lists.size(dataCount)} > 0">

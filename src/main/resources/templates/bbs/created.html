@@ -74,47 +74,91 @@
               <li><a href="list" style="text-decoration: none; color: black">Reservation List</a></li>
             </ul>
           </div>
-          <div class="slider">
+           <div class="slider">
             예약하기
-           
-	    <div layout:fragment="content" class="bbs">
-		<form action="/created" method="post" name="myForm">
-	<div class="bbsCreated">
-		
-		<div class="bbsCreated_bottomLine">
-			<dl>
-				<dt>이  름</dt>
-				<dd>
-				<input type="text" name="name" size="35" 
-				maxlength="20" class="boxTF"/>
-				</dd>
-			</dl>		
-		</div>
-		
-		<div class="bbsCreated_bottomLine">
-			<dl>
-				<dt>날짜</dt>
-				<dd>
-				<input type="text" name="day" size="35" 
-				maxlength="50" class="boxTF"/>
-				</dd>
-			</dl>		
-		</div>		
-	</div>
-	
-	<div class="bbsCreated_footer">
-		<input style="margin-left:40px" type="button" value=" 등록하기 " class="btn2" 
-		onclick="sendIt();"/>
-		<input type="reset" value=" 다시입력 " class="btn2" 
-		onclick="document.myForm.name.focus();" />
-		<input type="button" value=" 작성취소 " class="btn2" 
-		onclick="javascript:location.href='/list';"/>
-	</div>
-	</form>
-	</div>
-		
-	     
-	     
+
+            <div layout:fragment="content" id="bbs">
+              <form action="/created" method="post" name="myForm">
+                <div id="bbsCreated">
+                  <div class="bbsCreated_bottomLine">
+                    <dl>
+                      <dt>이 름</dt>
+                      <dd>
+                        <input
+                          type="text"
+                          name="name"
+                          size="35"
+                          maxlength="20"
+                          class="boxTF"
+                        />
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="bbsCreated_bottomLine">
+                    <dl>
+                      <dt>room type</dt>
+                      <dd>
+                        <input type="radio" name="room_type" value="1F">
+                        <label for="male">1F</label><br>
+                          <input type="radio"  name="room_type" value="2F">
+                          <label for="female">2F</label>
+                      </dd>
+                      
+                    </dl>
+                  </div>
+
+                  <div class="bbsCreated_bottomLine">
+                    <dl>
+                      <dt>체크인 날짜</dt>
+                      <dd>
+                        <input
+                          type="date"
+                          name="che_day"
+                          size="35"
+                          maxlength="50"
+                          class="boxTF"
+                        />
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="bbsCreated_bottomLine">
+                    <dl>
+                      <dt>체크아웃 날짜</dt>
+                      <dd>
+                        <input
+                          type="date"
+                          name="out_day"
+                          size="35"
+                          maxlength="50"
+                          class="boxTF"
+                        />
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+
+                <div id="bbsCreated_footer">
+                  <input
+                    type="button"
+                    value=" 등록하기 "
+                    class="btn2"
+                    onclick="sendIt();"
+                  />
+                  <input
+                    type="reset"
+                    value=" 다시입력 "
+                    class="btn2"
+                    onclick="document.myForm.subject.focus();"
+                  />
+                  <input
+                    type="button"
+                    value=" 작성취소 "
+                    class="btn2"
+                    onclick="javascript:location.href='/list';"
+                  />
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </main>
@@ -179,13 +223,33 @@
     			return;
     		}
     		
-    		str = f.day.value;
+    		str = f.room_type.value;
+    		str = str.trim();
+    		
+    		
+    		if(!str){
+    			alert("방을 선택.");
+    			f.room_type.focus();
+    			return;
+    		}
+    		
+    		str = f.che_day.value;
     		str = str.trim();
     		
     		
     		if(!str){
     			alert("날짜를 입력하세요.");
-    			f.day.focus();
+    			f.che_day.focus();
+    			return;
+    		}
+    		
+    		str = f.out_day.value;
+    		str = str.trim();
+    		
+    		
+    		if(!str){
+    			alert("날짜아를 입력하세요.");
+    			f.out_day.focus();
     			return;
     		}
     		

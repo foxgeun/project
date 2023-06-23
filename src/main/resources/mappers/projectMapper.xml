@@ -15,11 +15,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 <insert id="insertData" parameterType="Project">
-  insert into test values(#{num},#{name},#{day})
+  insert into test values(#{num},#{name},#{room_type},#{che_day},#{out_day})
 </insert>
 
 <update id="updateData" parameterType="Project">
-	update test set name=#{name}, day=#{day} where num = #{num}
+	update test set name=#{name}, room_type=#{room_type}, che_day=#{che_day} , out_day=#{out_day} where num = #{num}
 </update>
 
 	<select id="maxNum" resultType="int">
